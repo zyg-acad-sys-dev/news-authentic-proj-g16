@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News Authenticator | Project Overview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #0d0d12; color: #ffffff; overflow-x: hidden; }
+    .aurora-bg {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: -1; overflow: hidden; background: #0d0d12;
+    }
+    .blob {
+      position: absolute; filter: blur(90px); opacity: 0.6;
+      animation: float 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #9e1f5e; animation-delay: 0s; }
+    .blob-2 { bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: #00ffff; animation-delay: -5s; opacity: 0.3; }
+    .blob-3 { top: 40%; left: 40%; width: 40vw; height: 40vw; background: #4a0072; animation-delay: -10s; }
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+    .glass-panel {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-left: 1px solid rgba(255,255,255,0.1);
+    }
+    .hover-scale {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    }
+    .hover-scale:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 10px 40px rgba(158, 31, 94, 0.3);
+      border-color: rgba(0, 255, 255, 0.3);
+    }
+    .nav-link { transition: all 0.2s ease; position: relative; overflow: hidden; }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: 0; left: 0; width: 0%; height: 2px;
+      background: #00ffff; transition: width 0.3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link:hover { color: #00ffff; padding-left: 0.5rem; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+    .image-frame {
+      position: relative; overflow: hidden; border-radius: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+      min-height: 260px;
+    }
+    .image-frame img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+  </style>
+</head>
+<body class="antialiased font-sans selection:bg-cyan-500 selection:text-white">
+  <div class="aurora-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <div class="flex min-h-screen max-w-7xl mx-auto relative">
+    <aside class="w-72 hidden md:block relative">
+      <div class="sticky top-8 glass rounded-3xl p-8 m-4 h-[calc(100vh-4rem)] flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-4 mb-12">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500 to-cyan-500 flex items-center justify-center font-bold text-1xl shadow-[0_0_20px_rgba(0,255,255,0.4)]">鉴讯</div>
+            <div>
+              <h1 class="font-bold tracking-widest text-lg">News</h1>
+              <p class="text-xs text-gray-400 uppercase">Authenticator</p>
+            </div>
+          </div>
+
+          <nav class="flex flex-col gap-6 text-sm text-gray-300 font-medium">
+            <a href="#hero" class="nav-link block">01 / Overview</a>
+            <a href="#problem" class="nav-link block">02 / Problem & Goal</a>
+            <a href="#workflow" class="nav-link block">03 / Workflow</a>
+            <a href="#results" class="nav-link block">04 / Results</a>
+            <a href="#team" class="nav-link block">05 / Team</a>
+          </nav>
+        </div>
+
+        <div class="text-xs text-gray-500">
+          <p>Course Project Showcase</p>
+          <p class="mt-1">© 2026 News Authenticator Team</p>
+        </div>
+      </div>
+    </aside>
+
+    <main class="flex-1 p-4 md:p-8 lg:p-12 relative z-10">
+      <section id="hero" class="min-h-[85vh] flex flex-col justify-center relative">
+        <div class="inline-block glass px-4 py-1 rounded-full text-xs text-cyan-400 font-mono mb-6 border border-cyan-500/30">
+          $ PROJECT STATUS: SHOWCASE READY
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-500">
+              Fake News Detection for <br />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Information Integrity</span>
+            </h2>
+            <p class="text-gray-400 text-lg max-w-2xl mb-8 leading-relaxed">
+              News Authenticator is a lightweight project website presenting our fake news detection pipeline, model comparison, and project outcomes in a concise and visual way.
+            </p>
+            <div class="flex flex-wrap gap-4 text-sm text-gray-300 mb-6">
+              <span class="glass px-4 py-2 rounded-xl">Dataset-driven</span>
+              <span class="glass px-4 py-2 rounded-xl">Baseline + BERT</span>
+              <span class="glass px-4 py-2 rounded-xl">Static Web Demo</span>
+            </div>
+
+            <div class="flex flex-wrap gap-4">
+              <a href="https://github.com/zyg-acad-sys-dev/news-authentic-proj-g16" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-2xl px-6 py-3 font-semibold text-sm text-white border border-cyan-400/30 glass-panel hover-scale hover:border-cyan-400/60 transition">
+                <span>Visit GitHub Repository</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="image-frame glass-panel">
+            <img src="./images/Screenshot.png" alt="CLI demo screenshot" />
+          </div>
+        </div>
+      </section>
+
+      <section id="problem" class="py-20">
+        <h3 class="text-3xl font-bold mb-12 flex items-center gap-4">
+          <span class="w-8 h-1 bg-cyan-500 rounded-full"></span>
+          Problem and Goal
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="glass glass-panel p-8 rounded-3xl hover-scale">
+            <h4 class="text-xl font-bold mb-4">Why this project matters</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Fake news can spread quickly across online platforms and may influence public understanding, social trust, and decision making. Our project studies how machine learning and deep learning models can help classify news content more reliably.
+            </p>
+          </div>
+          <div class="glass glass-panel p-8 rounded-3xl hover-scale">
+            <h4 class="text-xl font-bold mb-4">What we aim to do</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              We build an end-to-end pipeline for data cleaning, text representation, model training, and evaluation. The goal is to compare classical baselines with transformer-based models and present the results clearly.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflow" class="py-20">
+        <h3 class="text-3xl font-bold mb-12 flex items-center gap-4">
+          <span class="w-8 h-1 bg-purple-500 rounded-full"></span>
+          Workflow
+        </h3>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          <div class="glass glass-panel p-8 rounded-3xl hover-scale">
+            <h4 class="text-xl font-bold mb-4">Pipeline summary</h4>
+            <ol class="space-y-4 text-sm text-gray-300 leading-relaxed list-decimal list-inside">
+              <li>Prepare and clean the dataset.</li>
+              <li>Split the data into training, validation, and test sets.</li>
+              <li>Train baseline models such as Logistic Regression and SVM.</li>
+              <li>Fine-tune a BERT-based classifier.</li>
+              <li>Compare metrics and export results.</li>
+            </ol>
+          </div>
+
+          <div class="image-frame glass-panel">
+            <img src="./images/pipeline_workflow.png" alt="Project workflow diagram" />
+          </div>
+        </div>
+      </section>
+
+      <section id="results" class="py-20">
+        <h3 class="text-3xl font-bold mb-12 flex items-center gap-4">
+          <span class="w-8 h-1 bg-pink-500 rounded-full"></span>
+          Results Snapshot
+        </h3>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="glass glass-panel p-8 rounded-3xl hover-scale">
+            <h4 class="text-xl font-bold mb-4">Key findings</h4>
+            <ul class="space-y-3 text-sm text-gray-300 leading-relaxed list-disc list-inside">
+              <li>Classical baselines provide a strong reference point.</li>
+              <li>BERT improves contextual understanding of news text.</li>
+              <li>Macro-F1, precision, recall, and accuracy are used for evaluation.</li>
+              <li>The final page highlights the best-performing configuration.</li>
+            </ul>
+          </div>
+
+          <div class="image-frame glass-panel">
+            <img src="./images/model_comparison.png" alt="Model comparison chart" />
+          </div>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="image-frame glass-panel">
+            <img src="./images/confusion_matrix.png" alt="Confusion matrix" />
+          </div>
+          <div class="glass glass-panel p-8 rounded-3xl hover-scale flex flex-col justify-center">
+            <h4 class="text-xl font-bold mb-4">What this page is for</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              This site is designed as a compact project introduction page. It is suitable for class presentation, portfolio use.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="team" class="py-20">
+        <h3 class="text-3xl font-bold mb-12 flex items-center gap-4">
+          <span class="w-8 h-1 bg-cyan-500 rounded-full"></span>
+          Team and Links
+        </h3>
+
+        <div class="glass glass-panel p-8 rounded-3xl">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-gray-300">
+            <div>
+              <h4 class="text-white font-semibold mb-3">Project</h4>
+              <p>News Authenticator</p>
+              <p>Course-based fake news detection project</p>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold mb-3">Team</h4>
+              <p>Group 16</p>
+              <p>CDS525 Practical Application of Deep Learning</p>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold mb-3">Links</h4>
+              <p><a href="https://github.com/zyg-acad-sys-dev/news-authentic-proj-g16" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">GitHub Repository</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
